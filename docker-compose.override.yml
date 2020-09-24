@@ -32,7 +32,6 @@ services:
     volumes:
       - ./backend:/code
       - ./config:/config
-      - django-media:/code/media
     environment:
       DJANGO_DEBUG: 1
       DATABASE_URL: 'postgresql://postgres:postgres@db:5432/dev_db'
@@ -50,4 +49,3 @@ services:
 
 volumes:
   db-data:
-  django-media:
