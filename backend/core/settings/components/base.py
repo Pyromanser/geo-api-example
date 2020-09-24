@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+
+    # local apps
+    "geo_data",
 ]
 
 MIDDLEWARE = [
