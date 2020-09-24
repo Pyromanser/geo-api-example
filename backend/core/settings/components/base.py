@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
 
     # local apps
-    "geo_data",
+    "geo_data.apps.GeoDataConfig",
 ]
 
 MIDDLEWARE = [
