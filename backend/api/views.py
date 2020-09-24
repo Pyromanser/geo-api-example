@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from geo_data.models import GeoData
+from geo_data.serializers import GeoDataModelSerializer
+
+
+class GeoDataViewSet(viewsets.ModelViewSet):
+    queryset = GeoData.objects.all()
+    serializer_class = GeoDataModelSerializer

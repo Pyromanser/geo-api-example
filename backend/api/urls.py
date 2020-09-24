@@ -6,6 +6,9 @@ from rest_framework import permissions
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 
+from api.routers import urlpatterns as api_urlpatterns
+
+
 schema_view = get_schema_view(
     openapi.Info(
         title="GEO API",
@@ -23,7 +26,7 @@ swagger_patterns = [
 ]
 
 urlpatterns = [
-
+    path("", include(api_urlpatterns)),
 ]
 
 if settings.DEBUG:
