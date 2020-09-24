@@ -36,8 +36,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
 
+    # libs
+    'rest_framework',
+    'rest_framework_gis',
+    'drf_yasg',
+
     # local apps
     "geo_data.apps.GeoDataConfig",
+    "api.apps.ApiConfig",
 ]
 
 MIDDLEWARE = [

@@ -12,6 +12,8 @@ Django = "*"
 django-split-settings = "*"
 django-environ = "*"
 psycopg2-binary = "*"
+djangorestframework-gis = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.8"
