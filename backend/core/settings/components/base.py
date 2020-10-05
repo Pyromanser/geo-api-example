@@ -119,3 +119,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+#  google services
+GOOGLE_API_KEY = env("GOOGLE_API_KEY")

@@ -16,6 +16,8 @@ djangorestframework-gis = "*"
 drf-yasg = "*"
 dj-rest-auth = "*"
 django-allauth = "*"
+geocoder = "*"
+geopy = "*"
 
 [requires]
 python_version = "3.8"

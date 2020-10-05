@@ -8,7 +8,6 @@ from drf_yasg.views import get_schema_view
 
 from api.routers import urlpatterns as api_urlpatterns
 
-
 schema_view = get_schema_view(
     openapi.Info(
         title="GEO API",
