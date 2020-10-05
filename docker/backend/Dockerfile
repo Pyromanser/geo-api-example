@@ -1,4 +1,4 @@
-FROM python:3.8.5 as python_base
+FROM python:latest as python_base
 
 ARG DJANGO_ENV
 

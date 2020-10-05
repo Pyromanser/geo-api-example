@@ -40,12 +40,32 @@ services:
       - db
     command: sh /runserver.sh
 
+  mailhog:
+    container_name: mailhog
+    image: mailhog/mailhog:latest
+    command: [ "-smtp-bind-addr", "0.0.0.0:25" ]
+    user: root
+    restart: on-failure
+    networks:
+      - webnet
+      - nginx_network
+    expose:
+      - 25
+      - 8025
+    healthcheck:
+      test: [ "CMD", "echo", "|", "telnet", "127.0.0.1 25" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   nginx:
     container_name: nginx
     build:
       target: development_build
     ports:
       - 8025:8025
+    depends_on:
+      - mailhog
 
 volumes:
   db-data:

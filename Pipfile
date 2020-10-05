@@ -7,13 +7,15 @@ verify_ssl = true
 ipython = "*"
 
 [packages]
-djangorestframework = "*"
+djangorestframework = "==3.11.2"
 Django = "*"
 django-split-settings = "*"
 django-environ = "*"
 psycopg2-binary = "*"
 djangorestframework-gis = "*"
 drf-yasg = "*"
+dj-rest-auth = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.8"
