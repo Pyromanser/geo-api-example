@@ -23,6 +23,8 @@ base_settings = [
     "components/static.py",
     "components/email.py",  # smtp
     "components/rest.py",
+    "components/cache.py",
+    "components/background.py",
 
     # Select the right env:
     "environments/%s.py" % ENVIRONMENT,

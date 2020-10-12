@@ -18,6 +18,9 @@ dj-rest-auth = "*"
 django-allauth = "*"
 geocoder = "*"
 geopy = "*"
+celery = "*"
+redis = "*"
+django-redis = "*"
 
 [requires]
 python_version = "3.8"
