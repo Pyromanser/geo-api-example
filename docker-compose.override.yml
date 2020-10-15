@@ -98,8 +98,6 @@ services:
       - nginx_network
     expose:
       - 5555
-    ports:
-      - 5555:5555
     depends_on:
       - celery
       - redis
