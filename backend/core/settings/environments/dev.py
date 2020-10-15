@@ -20,6 +20,22 @@ STATIC_ROOT = BASE_DIR.joinpath("..", "staticfiles")
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
 
-
 DOMAIN = "localhost"
 SCHEMA = "http"
+
+INSTALLED_APPS += [
+    "silk",
+    "debug_toolbar",
+]
+
+MIDDLEWARE += [
+    "silk.middleware.SilkyMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+]
+
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK": lambda request: DEBUG,
+}
+
+SILKY_PYTHON_PROFILER = True
+SILKY_META = True

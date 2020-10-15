@@ -27,3 +27,11 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns
+
+    if settings.ENVIRONMENT == "dev":
+        import debug_toolbar
+        urlpatterns = [
+            path("__debug__/", include(debug_toolbar.urls)),
+        ] + urlpatterns + [
+            path(r"silk/", include("silk.urls", namespace="silk")),
+        ]
