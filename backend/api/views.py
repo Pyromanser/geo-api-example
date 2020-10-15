@@ -1,5 +1,9 @@
 import geocoder
 
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie
+
 from rest_framework import viewsets, generics, mixins, status
 from rest_framework import permissions
 from rest_framework.response import Response
@@ -18,6 +22,11 @@ class GeoDataViewSet(
     queryset = GeoData.objects.all()
     serializer_class = GeoDataModelSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    @method_decorator(cache_page(60))
+    def list(self, request, *args, **kwargs):
+
+        return super(GeoDataViewSet, self).list(request, *args, **kwargs)
 
 
 class AddressToGeocodeView(generics.GenericAPIView):

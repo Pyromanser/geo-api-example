@@ -85,7 +85,6 @@ services:
     <<: *web
     container_name: celery
     restart: on-failure
-    command: celery worker -A core.celery -B -l info -Q default -n default
     depends_on:
       - rabbitmq
     expose: []

@@ -57,7 +57,7 @@ services:
     depends_on:
       - redis
       - db
-    command: celery worker -A core.celery -B -l info -Q default -n default
+    command: celery -A core.celery worker --loglevel=INFO
 
   mailhog:
     container_name: mailhog

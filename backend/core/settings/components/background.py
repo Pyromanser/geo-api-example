@@ -14,4 +14,9 @@ CELERYBEAT_SCHEDULE = {
         "schedule": timedelta(seconds=300),
         "args": (),
     },
+    "periodic": {
+        "task": "geo_data.tasks.add",
+        "schedule": timedelta(seconds=5),
+        "args": (4, 5),
+    },
 }

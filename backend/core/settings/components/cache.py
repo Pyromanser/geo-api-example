@@ -12,9 +12,9 @@ CELERY_BROKER_URL = BROKER_URL
 
 CACHES = {
     "default": {
-        "BACKEND": "django_redis.RedisCache",
+        "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": [
-            REDIS_CACHE,
+            REDIS_URL,
         ],
         "OPTIONS": {
             "CONNECTION_POOL_CLASS": "redis.BlockingConnectionPool",
