@@ -7,7 +7,7 @@ REDIS_CACHE = env("REDIS_CACHE", default="redis:6379")
 AMQP_URL = env("AMQP_URL", default="amqp://rabbitmq:5672")
 
 BROKER_URL = AMQP_URL
-CELERY_RESULT_BACKEND = REDIS_URL
+CELERY_result_backend = REDIS_URL
 CELERY_BROKER_URL = BROKER_URL
 
 CACHES = {
