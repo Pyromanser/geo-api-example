@@ -10,7 +10,7 @@ django-debug-toolbar = "*"
 flower = "*"
 
 [packages]
-djangorestframework = "==3.11.2"
+djangorestframework = "*"
 Django = "*"
 django-split-settings = "*"
 django-environ = "*"
@@ -26,4 +26,4 @@ redis = "*"
 django-redis = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"

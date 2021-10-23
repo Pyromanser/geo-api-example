@@ -6,11 +6,15 @@ from django.views.decorators.vary import vary_on_cookie
 
 from rest_framework import viewsets, generics, mixins, status
 from rest_framework import permissions
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
 from geo_data.models import GeoData
 from geo_data.serializers import GeoDataModelSerializer, GEOReadOnlySerializer, AddressSerializer, LatLngSerializer
 
+
+class MyPageNumberPagination(PageNumberPagination):
+    page_size = 5
 
 class GeoDataViewSet(
     mixins.CreateModelMixin,
@@ -21,12 +25,13 @@ class GeoDataViewSet(
 ):
     queryset = GeoData.objects.all()
     serializer_class = GeoDataModelSerializer
+    pagination_class = MyPageNumberPagination
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    @method_decorator(cache_page(60))
-    def list(self, request, *args, **kwargs):
-
-        return super(GeoDataViewSet, self).list(request, *args, **kwargs)
+    # @method_decorator(cache_page(60))
+    # def list(self, request, *args, **kwargs):
+    #
+    #     return super(GeoDataViewSet, self).list(request, *args, **kwargs)
 
 
 class AddressToGeocodeView(generics.GenericAPIView):

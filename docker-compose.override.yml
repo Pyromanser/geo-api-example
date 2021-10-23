@@ -102,7 +102,7 @@ services:
       - celery
       - redis
       - db
-    command: [ "--app core", "--port=5555", "--url_prefix=flower", "--broker=amqp://rabbitmq:5672", "--broker_api=amqp://rabbitmq:15672" ]
+    command: [ "--app core", "--port=5555", "--url_prefix=flower", "--broker=amqp://rabbitmq:5672", "--broker_api=amqp://rabbitmq:15672//" ]
 
   mailhog:
     container_name: mailhog
@@ -132,6 +132,18 @@ services:
     depends_on:
       - mailhog
       - flower
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    networks:
+      - webnet
+    restart: unless-stopped
 
 volumes:
   db-data:
